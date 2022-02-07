@@ -1,4 +1,4 @@
-export default function NavbarItem({ itemName, url}) {
+export default function NavbarItem({ itemName }) {
 
   return (
     <div>
