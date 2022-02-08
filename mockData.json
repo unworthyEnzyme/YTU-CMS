@@ -1,0 +1,32 @@
+{
+  "duzenlenenler": [
+    {
+      "name": "artlab",
+      "description": "yapay zeka zirvesi"
+    },
+    {
+      "name": "hardlev",
+      "description": "are you done yet"
+    }
+  ],
+  "onayBekleyenler": [
+    {
+      "name": "skydays",
+      "description": "bugun de ucuyoruz"
+    },
+    {
+      "name": "colossalDays",
+      "description": "come get me baby"
+    }
+  ],
+  "onaylanmis": [
+    {
+      "name": "yamete kudasai",
+      "description": "we should do this alone don't you think"
+    },
+    {
+      "name": "be gentle",
+      "description": "i am not experienced that much yet"
+    }
+  ]
+}
