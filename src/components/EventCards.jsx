@@ -1,5 +1,5 @@
 import EventCard from "./EventCard";
-import { useLocation } from "react-router-dom";
+import { useLinkClickHandler, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 
@@ -20,13 +20,14 @@ export default function EventCards() {
   useEffect(() => {
     fetchData(currentUrl)
   }, [currentUrl])
-  
+
+ 
   return (
     <div className="flex justify-center items-center m-6">
       <div className="grid grid-cols-3">
         {loading ? <div>"Loading..." </div> : data.map(info => (
           <div key={info.id}>
-            <EventCard name={info.name} description={info.description} />
+            <EventCard name={info.name} description={info.description} id={info.id}/>
           </div>
         ))}
       </div>

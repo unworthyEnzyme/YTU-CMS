@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 const popupState = atom({
   key: "popup-state",
-  default: true
+  default: false
 })
 
 export default popupState
