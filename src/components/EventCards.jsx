@@ -5,58 +5,33 @@ import useFetch from "../hooks/useFetch";
 
 export default function EventCards() {
   const currentUrl = useLocation().pathname.split('/')[2]
-  const duzenlenenlerData = useFetch("http://localhost:3001/duzenlenenler") || []
-  const onayBekleyenlerData = useFetch("http://localhost:3001/onayBekleyenler") || []
-  const onaylanmisData = useFetch("http://localhost:3001/onaylanmis") || []
-
-  if (currentUrl === "duzenlenenler"){
-    return(
-      <div className="flex justify-center items-center m-6">
-        <div className="grid grid-cols-3">
-          {duzenlenenlerData.map(info => (
-            <div>
-              <EventCard name={info.name} description={info.description} />
-            </div>
-          ))}
-        </div>
-      </div>
-    )
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const fetchData = async (url) => {
+    try {
+      const res = await fetch(`http://localhost:3001/${url}`)
+      const json = await res.json()
+      setData(json)
+    } catch (e) {
+      console.log(e)
+    }
+    setLoading(false)
   }
-
-  if (currentUrl === "onay-bekleyenler"){
-    return(
-      <div className="flex justify-center items-center m-6">
-        <div className="grid grid-cols-3">
-          {onayBekleyenlerData.map(info => (
-            <div>
-              <EventCard name={info.name} description={info.description} />
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  } 
-
-  if (currentUrl === "onaylanmis"){
-    return(
-      <div className="flex justify-center items-center m-6">
-        <div className="grid grid-cols-3">
-          {onaylanmisData.map(info => (
-            <div>
-              <EventCard name={info.name} description={info.description} />
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
+  useEffect(() => {
+    fetchData(currentUrl)
+  }, [currentUrl])
+  
   return (
     <div className="flex justify-center items-center m-6">
       <div className="grid grid-cols-3">
+        {loading ? <div>"Loading..." </div> : data.map(info => (
+          <div key={info.id}>
+            <EventCard name={info.name} description={info.description} />
+          </div>
+        ))}
       </div>
     </div>
-  );
+  )
 }
 
 
@@ -84,3 +59,17 @@ export default function EventCards() {
 */
 
 // <EventCard name="Hardlev" description="lorem ipsum so" />
+
+// if (currentUrl === "onaylanmis"){
+//   return(
+    // <div className="flex justify-center items-center m-6">
+    //   <div className="grid grid-cols-3">
+    //     {loading ? <div>"Loading..." </div> : onaylanmisData.map(info => (
+    //       <div>
+    //         <EventCard name={info.name} description={info.description} />
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
+//   )
+// }
