@@ -5,9 +5,9 @@ import useFetch from "../hooks/useFetch";
 
 export default function EventCards() {
   const currentUrl = useLocation().pathname.split('/')[2]
-  const duzenlenenlerData = useFetch("http://localhost:3001/duzenlenenler")
-  const onayBekleyenlerData = useFetch("http://localhost:3001/onayBekleyenler")
-  const onaylanmisData = useFetch("http://localhost:3001/onaylanmis")
+  const duzenlenenlerData = useFetch("http://localhost:3001/duzenlenenler") || []
+  const onayBekleyenlerData = useFetch("http://localhost:3001/onayBekleyenler") || []
+  const onaylanmisData = useFetch("http://localhost:3001/onaylanmis") || []
 
   if (currentUrl === "duzenlenenler"){
     return(
