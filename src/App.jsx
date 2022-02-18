@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main"
 import Popup from "./components/Popup";
@@ -13,11 +13,7 @@ function App() {
           <div className="w-10 h-10 bg-white"></div>
         </Popup>
         <Sidebar/>
-        <Routes>
-          <Route path="/evraklar/*" element={<Main/>}/>
-          <Route path="/etkinlikler/*" element={<Main/>}/>
-          <Route path="/profili-duzenle" element={<div>profil</div>}/>
-        </Routes>
+        <Outlet/>
       </div>
       </RecoilRoot>
     </>
