@@ -6,12 +6,14 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 import EventCards from "./components/EventCards";
+import LoginPage from "./components/LoginPage";
+import ProtectedComponent from "./components/ProtectedComponent";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/" element={<ProtectedComponent><App /></ProtectedComponent>}>
           <Route path="evraklar" element={<Main />}>
             <Route index element={<Navigate to="duzenlenenler" />} />
             <Route path="duzenlenenler" element={<EventCards />} />
@@ -26,6 +28,7 @@ ReactDOM.render(
           </Route>
           <Route path="profili-duzenle" element={<div>Profili duzenle</div>} />
         </Route>
+        <Route path="/login" element={<LoginPage/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
