@@ -1,11 +1,34 @@
-import Button from "./Button";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  MenuButton,
+  Button
+} from '@chakra-ui/react'
 
-export default function EditButton() {
+import EditEventForm from './EditEventForm'
+
+export default function EditButton({ id }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <div className="m-2">
-      <Button type="edit">
-        <div>Edit</div>
-      </Button>
-    </div>
+    <>
+    <Button colorScheme='blue' onClick={onOpen}>Edit</Button>
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        
+        <ModalContent>
+          <ModalHeader>Edit Event</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <EditEventForm id={id} onClose={onClose}></EditEventForm>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
