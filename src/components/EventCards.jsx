@@ -47,7 +47,7 @@ export default function EventCards() {
       <div className="grid grid-cols-3">
         {loading ? <div>"Loading..." </div> : displayedDraftEvents.map(info => ( //data may be undefined. Handle the case where server doesn't return an array
           <div key={info.id}>
-            <EventCard name={info.name} description={info.description} id={info.id} />
+            <EventCard name={info.name} id={info.id} />
           </div>
         ))}
       </div>
