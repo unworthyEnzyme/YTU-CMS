@@ -4,19 +4,23 @@ import {useLocation} from "react-router-dom"
 import popupState from "./../GlobalStates/PopupState"
 import { useRecoilState } from "recoil";
 import popupId from "../GlobalStates/CurrentPopupId";
+import Popup from "./Popup";
+import { useState } from 'react'
 
 
 export default function EventCard({ name, description, id}) {
   const currentUrl = useLocation().pathname.split('/')[2]
   const showButtons = currentUrl === "duzenlenenler"
+  // const [showPopup, setShowPopup] = useState(false)
 
-  const [show, setShow] = useRecoilState(popupState)
-  const [infoId, setInfoId] = useRecoilState(popupId)
+  // const [show, setShow] = useRecoilState(popupState)
+  // const [infoId, setInfoId] = useRecoilState(popupId)
 
 
   function handleClick(){
-    setInfoId(id)
-    setShow(true)
+    // setInfoId(id)
+    //setShow(true)
+    // setShowPopup(true)
   }
   
 
@@ -29,7 +33,7 @@ export default function EventCard({ name, description, id}) {
 
       {showButtons ?
         <div className="flex p-2 justify-start">
-          <EditButton /><DeleteButton />
+          <EditButton id={id}/><DeleteButton id={id}/>
         </div>
         : <div></div>
       }
