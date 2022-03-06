@@ -12,8 +12,14 @@ import {
   Button,
 } from '@chakra-ui/react'
 
+import { useFetch } from "usehooks-ts"
+import PublishButton from "./PublishButton"
+import { useLocation } from "react-router-dom"
 
 export default function EventDetail({ id , isOpen, onOpen, onClose}) {
+    const currentUrl = useLocation().pathname.split('/')[2]
+    const showPublishButton = currentUrl === "duzenlenenler" ? true : false
+    //console.log(useDarkMode())
     const [data, setData] = useState(null)
     const jwt = localStorage.getItem("jwt")
     useEffect(() => {
@@ -50,7 +56,7 @@ export default function EventDetail({ id , isOpen, onOpen, onClose}) {
           </ul>
         </ModalBody>: ""}
         <ModalFooter>
-          <Button onClick={onClose}>Publish</Button> {/* Publish http://localhost:8080/api/events/id/publish bağla      */}
+          {showPublishButton ? <PublishButton id={id} onClose={onClose} /> : <div></div>}
         </ModalFooter>
       </ModalContent>
     </Modal>
