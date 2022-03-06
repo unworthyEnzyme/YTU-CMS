@@ -5,9 +5,12 @@ import Navbar from "./Navbar";
 import ProtectedComponent from "./ProtectedComponent";
 
 export default function Main() {
+    const role = JSON.parse(localStorage.getItem("user")).role
+    let showNavbar = !( role === "ADVISOR" || role === "DEPARTMENT" )
+
     return (
       <div className="flex flex-col w-3/4">
-        <Navbar />
+        {showNavbar ? <Navbar /> : <div></div>}
         <Outlet />
       </div>
     )
