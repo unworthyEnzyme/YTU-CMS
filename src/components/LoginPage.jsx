@@ -56,10 +56,29 @@ export default function LoginPage() {
   }
   return (
     <div>
+      <div className="flex justify-center mt-20 ml-12">
+        <img src="../../public/Yıldız_Technical_University_Logo.png" width="100" alt="ytü img"/>
+      </div>
+      <div className="flex justify-center ml-12 mt-4">
+        <h1 className="text-xl">Yıldız Teknik Üniversitesi</h1>
+      </div>
+      <div className="flex justify-center ml-12 mt-4">
+        <h1>SKS Külüp Yönetim Sistemi</h1>
+      </div>
       <form onSubmit={handlePost}>
-        <input type="email" name="email" id="email" className="border-2 border-black" placeholder="email@email.com" />
-        <input type="password" name="password" id="password" className="border-2 border-black" />
-        <button type="submit">Submit</button>
+        <div className="flex justify-center mt-12">
+          <label className="mr-4">E-mail</label>
+          <input type="email" name="email" id="email" className="border-2 border-black" placeholder="email@email.com" />
+        </div>
+        <div className="flex justify-center mt-4 mr-5">
+          <label className="mr-4">Password</label>
+          <input type="password" name="password" id="password" className="border-2 border-black" />
+        </div>
+        <div className="flex justify-center">
+          <div className="bg-slate-300 rounded-md mt-4">
+            <button type="submit">Login</button>
+          </div>
+        </div>
       </form>
     </div>
   )
