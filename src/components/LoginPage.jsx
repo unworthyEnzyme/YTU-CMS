@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+
 export default function LoginPage() {
   const navigate = useNavigate()
   const [success, setSuccess] = useState(false)
@@ -25,8 +26,8 @@ export default function LoginPage() {
     })
       .then((response) => {
         if (response.status !== 200) {
-          throw new Error("Coudn't logged in")
           setSuccess(false)
+          throw new Error("Coudn't logged in")
         }
         return response.json()
       })
@@ -46,10 +47,10 @@ export default function LoginPage() {
             })
             .then((data) => {
               localStorage.setItem('user', JSON.stringify(data))
+              setSuccess(true)
               //console.log(JSON.parse(localStorage.getItem('user')).role)
             })
             .catch((e) => console.log(e))
-          setSuccess(true)
         }
       }).catch(e => console.log(e))
 
@@ -75,7 +76,7 @@ export default function LoginPage() {
           <input type="password" name="password" id="password" className="border-2 border-black" />
         </div>
         <div className="flex justify-center">
-          <div className="bg-slate-300 rounded-md mt-4">
+          <div className="bg-slate-300 rounded-md mt-4 p-2">
             <button type="submit">Login</button>
           </div>
         </div>
