@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+
+import AddEventButton from "./AddEventButton";
 import NavbarItem from "./NavbarItem";
 
 export default function Navbar() {
@@ -13,6 +15,7 @@ export default function Navbar() {
       <Link to='onaylanmis'>
         <NavbarItem itemName="Onaylanmis" url="onaylanmis"/>
       </Link>
+      <AddEventButton />
     </div>
   )
 }

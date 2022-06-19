@@ -1,30 +1,36 @@
 {
   "duzenlenenler": [
     {
+      "id" : 1,
       "name": "artlab",
       "description": "yapay zeka zirvesi"
     },
     {
+      "id" : 2,
       "name": "hardlev",
       "description": "are you done yet"
     }
   ],
-  "onayBekleyenler": [
+  "onay-bekleyenler": [
     {
+      "id" : 3,
       "name": "skydays",
       "description": "bugun de ucuyoruz"
     },
     {
+      "id" : 4,
       "name": "colossalDays",
       "description": "come get me baby"
     }
   ],
   "onaylanmis": [
     {
+      "id" : 5,
       "name": "yamete kudasai",
       "description": "we should do this alone don't you think"
     },
     {
+      "id" : 6,
       "name": "be gentle",
       "description": "i am not experienced that much yet"
     }

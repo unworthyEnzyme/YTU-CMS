@@ -1,0 +1,12 @@
+App 
+  - Etkinlikler:
+    - /
+      - Onaylanmis
+      - Onay Bekleyenler
+      - Duzenlenenler
+  - Evraklar
+    - /
+      - Onaylanmis
+      - Onay Bekleyenler
+      - Duzenlenenler
+  - Profil

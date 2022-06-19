@@ -1,18 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { readAuthToken } from "../helpers/ReadorWriteAuthToken";
 import EventCards from "./EventCards";
 import Navbar from "./Navbar";
+import ProtectedComponent from "./ProtectedComponent";
 
 export default function Main() {
-
-  return (
-    <div className="flex flex-col w-3/4">
-      <Navbar/>
-      <Routes>
-        <Route path="/" index element={<EventCards/>}/>
-        <Route path="/duzenlenenler" element={<EventCards/>}/>
-        <Route path="/onay-bekleyenler" element={<EventCards/>}/>
-        <Route path="/onaylanmis" element={<EventCards/>}/>
-      </Routes>
-    </div>
-  )
+    return (
+      <div className="flex flex-col w-3/4">
+        <Navbar />
+        <Outlet />
+      </div>
+    )
 }
